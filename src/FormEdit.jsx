@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+// Perubahan kedua
+
 function FormEdit({ onEdit, notes, onCancel ,targetValue }) {
     const [title,setTitle] = useState(targetValue.title !== null ? targetValue.title : null)
     const [note,setNotes] = useState(targetValue.content !== null ? targetValue.content : null)
