@@ -12,6 +12,7 @@ function App() {
     // panggil nilai isLoggedin dari context
 
     const [token,setToken] = useState(null);
+    const {isLoggedin} = useAuth()
 
     const handleLogin = (tokens) => {
         setToken(tokens)
@@ -31,8 +32,19 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route element={<Layout token={token} onLogout={handleLogout}/>}>
-                    <Route path={"/Note"} element={<Note />} /> 
-                    <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
+                    {isLoggedin ? (
+                        <Route>
+                        <Route path={"/Note"} element={<Note />} />,
+                        <Route path='/Login' element={<Navigate to={"/Note"}/>} />
+                        </Route>
+                    ) : (
+                        <>
+                        <Route path={"/Registrasi"} element={<Registrasi />} /> 
+                        <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
+                        <Route path="*" element={<Navigate to={"/Login"}/>}/>
+                        </>
+                    )}
+                                       
                 </Route>
                 {/* {token !== null ? 
                     <Route>
@@ -47,7 +59,6 @@ function App() {
                      <Route path={"/Login"} element={<Login onLogin={handleLogin}/>} />
                    </Route>
                 }
-                </Route>
                 <Route path="*" element={<Navigate to={"/Login"}/>}/> */}
             </Routes>
 
