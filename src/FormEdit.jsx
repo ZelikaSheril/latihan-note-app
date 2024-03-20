@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 // Perubahan kedua
 
 function FormEdit({ onEdit, notes, onCancel ,targetValue }) {
-    const [title,setTitle] = useState(targetValue.title !== null ? targetValue.title : null)
-    const [note,setNotes] = useState(targetValue.content !== null ? targetValue.content : null)
+    const [title,setTitle] = useState(targetValue !== null ? targetValue.title : null)
+    const [note,setNotes] = useState(targetValue !== null ? targetValue.content : null)
     const [writer, setWriter] = useState(targetValue !== null ? targetValue.writer : null);
 
     useEffect(() => {

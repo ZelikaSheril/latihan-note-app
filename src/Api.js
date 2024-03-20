@@ -23,6 +23,10 @@ export const handleLogin = async (email, password) => {
   export const getToken = () => {
     return localStorage.getItem("token") ?? null;
   };
+
+  export const removeToken = () => {
+    localStorage.removeItem('token')
+  }
   
   export const tampilkan = async () => {
     const token = getToken();
@@ -49,7 +53,7 @@ export const handleLogin = async (email, password) => {
       writer: 1,
     };
     const add = await axios
-      .post(HTTP + "notes", noteBaru, {
+      .post(http + "notes", noteBaru, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -84,7 +88,7 @@ export const handleLogin = async (email, password) => {
     const token = getToken();
     const edits = await axios
       .put(
-        HTTP + "notes/" + id,
+        http + "notes/" + id,
         { title, content, writer },
         {
           headers: {
