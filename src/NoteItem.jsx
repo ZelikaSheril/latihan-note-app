@@ -4,7 +4,7 @@ function NoteItem({ id, title, content, onDelete, onEdit}) {
     const konfirm = confirm("Apakah Anda Yakin Ingin Menghapusnya?")
     if(konfirm){
       onDelete(id)
-      alert("Berhasil Mendelete")
+      alert("Berhasil Menghapus")
     }
   }
     return (
@@ -22,4 +22,4 @@ function NoteItem({ id, title, content, onDelete, onEdit}) {
     )
   }
   export default NoteItem;
-  
+

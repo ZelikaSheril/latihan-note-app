@@ -5,10 +5,6 @@ export default function Layout() {
     const { isLoggedin } = useAuth()
     const { doLogout } = useAuth()
 
-    const handleLogout = () => {
-        doLogout()
-    }
-
     return (
         <>
             <div className="flex bg-blue-600 h-[55px] justify-around py-2 gap-2 text-white">
@@ -25,7 +21,7 @@ export default function Layout() {
                         <Link onClick={() => doLogout()}><span className="text-white font-sans hover:text-slate-300">Logout</span></Link>
                     </> : <>
                         <Link to={"/Registrasi"}><p className="hover:text-amber-300">Registrasi</p></Link>
-                        <Link to={"/Login"} onClick={handleLogout}><p className="hover:text-amber-300">Logout</p></Link>
+                        <Link to={"/Login"}><p className="hover:text-amber-300">Logout</p></Link>
                     </>}
                 </nav>
             </div>

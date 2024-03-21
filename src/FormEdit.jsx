@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 // Perubahan kedua
 
 function FormEdit({ onEdit, notes, onCancel ,targetValue }) {
-    const [title,setTitle] = useState(targetValue !== null ? targetValue.title : null)
-    const [note,setNotes] = useState(targetValue !== null ? targetValue.content : null)
+    const [title,setTitle] = useState(targetValue !== null ? targetValue.title : null);
+    const [note,setNotes] = useState(targetValue !== null ? targetValue.content : null);
     const [writer, setWriter] = useState(targetValue !== null ? targetValue.writer : null);
 
     useEffect(() => {
@@ -27,6 +27,8 @@ function FormEdit({ onEdit, notes, onCancel ,targetValue }) {
         onEdit(targetValue.id, title, note, writer);
         setTitle("")
         setNotes("")
+        setWriter("")
+        onCancel()
         }
     };
 
@@ -77,3 +79,5 @@ function FormEdit({ onEdit, notes, onCancel ,targetValue }) {
 }
 
 export default FormEdit;
+
+
