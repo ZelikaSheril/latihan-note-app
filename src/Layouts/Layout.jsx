@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { useAuth } from "./context/Auth";
+import { useAuth } from "../modules/auth/Auth";
 
 export default function Layout() {
     const { isLoggedin } = useAuth()

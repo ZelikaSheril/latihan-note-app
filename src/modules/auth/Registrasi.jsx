@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Register, setTokens } from "../Api";
+import { Register, setTokens } from "../config/Api";
+// import { Register, setTokens } from "../Api";
 
 function Registrasi() {
 
